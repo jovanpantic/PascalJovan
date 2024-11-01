@@ -1,0 +1,18 @@
+program OStriodeljenja;
+
+var
+  i,j,x:longint;
+
+begin
+  for i:=1 to 8 do
+  begin
+    x:=i;
+    for j:=1 to 3 do 
+    begin
+      write(x,j);
+      writeln('');
+    end;
+  writeln('');
+  end;
+
+end.
