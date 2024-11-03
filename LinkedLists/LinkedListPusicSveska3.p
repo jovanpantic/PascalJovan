@@ -6,7 +6,7 @@ sled:^cvor;
 end;
 var
 head,tail,tek:^cvor;
-b,br:integer;
+b:integer;
 begin
   read(b);
   New(tek);
@@ -31,17 +31,8 @@ begin
     end;
     tek:=tek^.sled;
   end;
-  tek:=head;
-  br:=0;
-  while tek <> nil do 
-  begin
-  br:=br+1;
-  if br = 3 then 
-  begin
-  tek^.sled:=tek^.sled^.sled;
-  end;
-  tek:=tek^.sled;
-  end;
+  tek:=head^.sled;
+  tek^.sled:=nil;
   tek:=head;
   while tek <> nil do 
   begin

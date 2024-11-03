@@ -14,6 +14,7 @@ function dod(k:integer;head:pointer):integer;
 var
 tek,dodat:^cvor;
 br,ko:integer;
+
 begin
     New(dodat);
     dodat^.broj:=k;

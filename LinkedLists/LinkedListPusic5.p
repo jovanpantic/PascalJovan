@@ -5,8 +5,8 @@ broj:integer;
 sled:^cvor;
 end;
 var
-head,tail,tek:^cvor;
-b,br:integer;
+head,tail,tek,dod:^cvor;
+b,x,z,y,br:integer;
 begin
   read(b);
   New(tek);
@@ -35,13 +35,14 @@ begin
   br:=0;
   while tek <> nil do 
   begin
-  br:=br+1;
-  if br = 3 then 
+  br:=br + 1;
+  if (br mod 2) = 0 then
   begin
-  tek^.sled:=tek^.sled^.sled;
+  write(tek^.broj,'  ');
   end;
   tek:=tek^.sled;
   end;
+  writeln();
   tek:=head;
   while tek <> nil do 
   begin

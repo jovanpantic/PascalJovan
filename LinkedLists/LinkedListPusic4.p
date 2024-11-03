@@ -5,8 +5,8 @@ broj:integer;
 sled:^cvor;
 end;
 var
-head,tail,tek:^cvor;
-b,br:integer;
+head,tail,tek,dod:^cvor;
+b,x,z,y:integer;
 begin
   read(b);
   New(tek);
@@ -21,27 +21,17 @@ begin
     tail^.sled:=tek;
     tail:=tek;
   end;
-  tek:=head;
-  while tek <> nil do 
+    tek := head;
+  while (tek <> nil) and (tek^.sled <> nil) and (tek^.sled^.sled <> nil) and (tek^.sled^.sled^.sled <> nil) do 
   begin
-    if tek^.sled = tail then 
-    begin
-      tek^.sled:=nil;
-      tail:=tek;
-    end;
+    x := tek^.sled^.sled^.broj - tek^.sled^.sled^.sled^.broj;
+    New(dod);
+    dod^.broj := x;
+    dod^.sled := tek^.sled;
+    tek^.sled := dod;
+    tek := dod^.sled; 
+  end;
     tek:=tek^.sled;
-  end;
-  tek:=head;
-  br:=0;
-  while tek <> nil do 
-  begin
-  br:=br+1;
-  if br = 3 then 
-  begin
-  tek^.sled:=tek^.sled^.sled;
-  end;
-  tek:=tek^.sled;
-  end;
   tek:=head;
   while tek <> nil do 
   begin
